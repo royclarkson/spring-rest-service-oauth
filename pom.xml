@@ -10,8 +10,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.0.0.RC1</version>
+		<version>1.0.0.RC3</version>
 	</parent>
+
+	<properties>
+		<!-- use UTF-8 for everything -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<start-class>hello.Application</start-class>
+		<spring-security-oauth2-javaconfig.version>1.0.0.CI-SNAPSHOT</spring-security-oauth2-javaconfig.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -25,24 +33,21 @@
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2-javaconfig</artifactId>
-			<version>1.0.0.CI-SNAPSHOT</version>
+			<version>${spring-security-oauth2-javaconfig.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
-
-	<properties>
-		<start-class>hello.Application</start-class>
-	</properties>
 
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -59,10 +64,12 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-milestones</id>
 			<url>http://repo.spring.io/libs-milestone</url>
 		</pluginRepository>
 	</pluginRepositories>
+
 </project>

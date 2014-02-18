@@ -1,10 +1,9 @@
 buildscript {
-	ext.springBootVersion = "1.0.0.RC1"
 	repositories {
 		maven { url "http://repo.spring.io/libs-milestone" }
 		mavenLocal()
 	}
-	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion") }
+	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC3") }
 }
 
 apply plugin: "java"
@@ -23,11 +22,11 @@ repositories {
 }
 
 dependencies {
-	compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
-	compile("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-security")
 	compile("org.springframework.security.oauth:spring-security-oauth2-javaconfig:1.0.0.CI-SNAPSHOT")
 	compile("com.fasterxml.jackson.core:jackson-databind")
-	testCompile("junit:junit:4.11")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 task wrapper(type: Wrapper) { gradleVersion = "1.10" }
