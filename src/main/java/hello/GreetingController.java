@@ -33,4 +33,5 @@ public class GreetingController {
 			@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
+
 }
