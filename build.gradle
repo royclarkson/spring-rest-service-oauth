@@ -1,9 +1,8 @@
 buildscript {
 	repositories {
-		maven { url "http://repo.spring.io/libs-milestone" }
-		mavenLocal()
+		maven { url "http://repo.spring.io/libs-snapshot" }
 	}
-	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC4") }
+	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.BUILD-SNAPSHOT") }
 }
 
 apply plugin: "java"
@@ -17,14 +16,13 @@ jar {
 }
 
 repositories {
-	mavenCentral()
 	maven { url "http://repo.spring.io/libs-snapshot" }
 }
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-security")
-	compile("org.springframework.security.oauth:spring-security-oauth2-javaconfig:1.0.0.CI-SNAPSHOT")
+	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.0.M4")
 	compile("com.fasterxml.jackson.core:jackson-databind")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
