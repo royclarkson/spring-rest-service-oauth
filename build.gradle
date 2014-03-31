@@ -31,6 +31,8 @@ dependencies {
 	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.0.M4")
 	compile("com.fasterxml.jackson.core:jackson-databind")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile("com.jayway.jsonpath:json-path:0.8.1")
+	testCompile("com.jayway.jsonpath:json-path-assert:0.8.1")
 }
 
 task wrapper(type: Wrapper) { gradleVersion = "1.11" }
