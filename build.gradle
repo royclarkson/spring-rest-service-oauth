@@ -1,14 +1,19 @@
 buildscript {
 	repositories {
-		maven { url "http://repo.spring.io/libs-snapshot" }
+		maven { url "http://repo.spring.io/libs-staging-local" }
+		maven { url "http://repo.spring.io/libs-milestone" }
 	}
-	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.BUILD-SNAPSHOT") }
+	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RELEASE") }
 }
 
 apply plugin: "java"
 apply plugin: "eclipse"
 apply plugin: "idea"
 apply plugin: "spring-boot"
+//apply plugin: "war"
+
+sourceCompatibility=1.7
+targetCompatibility=1.7
 
 jar {
 	baseName = "spring-rest-service-oauth"
@@ -16,7 +21,8 @@ jar {
 }
 
 repositories {
-	maven { url "http://repo.spring.io/libs-snapshot" }
+	maven { url "http://repo.spring.io/libs-staging-local" }
+	maven { url "http://repo.spring.io/libs-milestone" }
 }
 
 dependencies {
