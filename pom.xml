@@ -66,10 +66,6 @@
 
 	<repositories>
 		<repository>
-			<id>spring-staging</id>
-			<url>http://repo.spring.io/libs-staging-local</url>
-		</repository>
-		<repository>
 			<id>spring-milestones</id>
 			<url>http://repo.spring.io/libs-milestone</url>
 		</repository>
@@ -77,12 +73,8 @@
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>spring-staging</id>
-			<url>http://repo.spring.io/libs-staging-local</url>
-		</pluginRepository>
-		<pluginRepository>
 			<id>spring-milestones</id>
-			<url>http://repo.spring.io/libs-milestone</url>
+			<url>http://repo.spring.io/libs-release</url>
 		</pluginRepository>
 	</pluginRepositories>
 
