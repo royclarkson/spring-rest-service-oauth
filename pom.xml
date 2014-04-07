@@ -6,11 +6,12 @@
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-rest-service-oauth</artifactId>
 	<version>0.1.0</version>
+	<packaging>war</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.0.0.RELEASE</version>
+		<version>1.0.1.RELEASE</version>
 	</parent>
 
 	<properties>
@@ -35,6 +36,11 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,7 +79,7 @@
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>spring-milestones</id>
+			<id>spring-release</id>
 			<url>http://repo.spring.io/libs-release</url>
 		</pluginRepository>
 	</pluginRepositories>

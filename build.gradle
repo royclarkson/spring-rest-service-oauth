@@ -2,7 +2,7 @@ buildscript {
 	repositories {
 		maven { url "http://repo.spring.io/libs-release" }
 	}
-	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RELEASE") }
+	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE") }
 }
 
 apply plugin: "java"
@@ -28,6 +28,7 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-security")
 	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.0.M4")
 	compile("com.fasterxml.jackson.core:jackson-databind")
+	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	testCompile("com.jayway.jsonpath:json-path:0.8.1")
 	testCompile("com.jayway.jsonpath:json-path-assert:0.8.1")
