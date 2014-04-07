@@ -93,11 +93,11 @@ public class GreetingControllerTest {
 		// @formatter:on
 
 		// @formatter:off
-//		mvc.perform(get("/greeting")
-//				.accept(MediaType.APPLICATION_JSON))
-//			.andExpect(status().isOk())
-//			.andExpect(jsonPath("$.id", is(1)))
-//			.andExpect(jsonPath("$.content", is("Hello, World!")));
+		mvc.perform(get("/greeting")
+				.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.id", is(1)))
+			.andExpect(jsonPath("$.content", is("Hello, World!")));
 		// @formatter:on
 	}
 

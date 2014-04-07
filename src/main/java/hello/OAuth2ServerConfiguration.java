@@ -58,6 +58,7 @@ public class OAuth2ServerConfiguration {
 					.anyRequest().authenticated();
 			// @formatter:on
 		}
+
 	}
 
 	@Configuration
@@ -94,6 +95,7 @@ public class OAuth2ServerConfiguration {
 				.authenticationManager(authenticationManager);
 			// @formatter:on
 		}
+
 	}
 
 }
