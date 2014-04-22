@@ -73,26 +73,26 @@ public class OAuth2ServerConfiguration {
 		private AuthenticationManager authenticationManager;
 
 		@Override
-		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-			// @formatter:off
-			clients
-				.inMemory()
-					.withClient("clientapp")
-					.resourceIds(RESOURCE_ID)
-					.scopes("read", "write")
-					.authorities("USER")
-					.authorizedGrantTypes("password")
-					.secret("123456");
-			// @formatter:on
-		}
-
-		@Override
 		public void configure(AuthorizationServerEndpointsConfigurer endpoints)
 				throws Exception {
 			// @formatter:off
 			endpoints
 				.tokenStore(tokenStore)
 				.authenticationManager(authenticationManager);
+			// @formatter:on
+		}
+
+		@Override
+		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+			// @formatter:off
+			clients
+				.inMemory()
+					.withClient("clientapp")
+						.authorizedGrantTypes("password")
+						.authorities("USER")
+						.scopes("read", "write")
+						.resourceIds(RESOURCE_ID)
+						.secret("123456");
 			// @formatter:on
 		}
 
