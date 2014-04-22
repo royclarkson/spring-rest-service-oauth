@@ -2,7 +2,9 @@ buildscript {
 	repositories {
 		maven { url "http://repo.spring.io/libs-release" }
 	}
-	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE") }
+	dependencies { 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE") 
+	}
 }
 
 apply plugin: "java"
@@ -26,7 +28,7 @@ repositories {
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-security")
-	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.0.M4")
+	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.0.RC1")
 	compile("com.fasterxml.jackson.core:jackson-databind")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
@@ -34,4 +36,6 @@ dependencies {
 	testCompile("com.jayway.jsonpath:json-path-assert:0.8.1")
 }
 
-task wrapper(type: Wrapper) { gradleVersion = "1.11" }
+task wrapper(type: Wrapper) { 
+	gradleVersion = "1.11" 
+}

@@ -26,8 +26,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configurers.OAuth2ResourceServerConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
@@ -42,7 +42,7 @@ public class OAuth2ServerConfiguration {
 			ResourceServerConfigurerAdapter {
 
 		@Override
-		public void configure(OAuth2ResourceServerConfigurer resources) {
+		public void configure(ResourceServerSecurityConfigurer resources) {
 			// @formatter:off
 			resources
 				.resourceId(RESOURCE_ID);
@@ -87,10 +87,10 @@ public class OAuth2ServerConfiguration {
 		}
 
 		@Override
-		public void configure(OAuth2AuthorizationServerConfigurer oauthServer)
+		public void configure(AuthorizationServerEndpointsConfigurer endpoints)
 				throws Exception {
 			// @formatter:off
-			oauthServer
+			endpoints
 				.tokenStore(tokenStore)
 				.authenticationManager(authenticationManager);
 			// @formatter:on
