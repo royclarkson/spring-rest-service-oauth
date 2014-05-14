@@ -16,7 +16,7 @@
 
 	<properties>
 		<start-class>hello.Application</start-class>
-		<spring-security-oauth2.version>2.0.0.RC1</spring-security-oauth2.version>
+		<spring-security-oauth2.version>2.0.0.RC2</spring-security-oauth2.version>
 	</properties>
 
 	<dependencies>

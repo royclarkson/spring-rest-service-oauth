@@ -2,7 +2,7 @@
 
 [![Build Status](https://drone.io/github.com/royclarkson/spring-rest-service-oauth/status.png)](https://drone.io/github.com/royclarkson/spring-rest-service-oauth/latest)
 
-This is a simple REST service built using [Spring Boot](http://projects.spring.io/spring-boot/), [Spring MVC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html), and [Spring Security OAuth](http://projects.spring.io/spring-security-oauth/) that provides a single RESTful endpoint protected by OAuth2. The REST service is based on the [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) getting started guide. This project is built using a preview version of Java-based configuration support, available in Spring Security [OAuth 2.0.0.RC1](https://spring.io/blog/2014/04/18/spring-security-oauth-2-0-0-rc1-available). Please log any issues or feature requests to the [Spring Security OAuth project](https://github.com/spring-projects/spring-security-oauth/issues).
+This is a simple REST service built using [Spring Boot](http://projects.spring.io/spring-boot/), [Spring MVC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html), and [Spring Security OAuth](http://projects.spring.io/spring-security-oauth/) that provides a single RESTful endpoint protected by OAuth2. The REST service is based on the [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) getting started guide. This project is built using a preview version of Java-based configuration support, available in Spring Security OAuth 2.0.0.RC2. Please log any issues or feature requests to the [Spring Security OAuth project](https://github.com/spring-projects/spring-security-oauth/issues).
 
 
 ## Build and Run
