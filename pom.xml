@@ -11,12 +11,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.1.0.M1</version>
+		<version>1.1.0.M2</version>
 	</parent>
 
 	<properties>
 		<start-class>hello.Application</start-class>
-		<spring-security-oauth2.version>2.0.0.RC2</spring-security-oauth2.version>
+		<spring-security-oauth2.version>2.0.1.RELEASE</spring-security-oauth2.version>
 	</properties>
 
 	<dependencies>

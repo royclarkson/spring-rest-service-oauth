@@ -3,7 +3,7 @@ buildscript {
 		maven { url "http://repo.spring.io/libs-milestone" }
 	}
 	dependencies { 
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.0.M1") 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.0.M2") 
 	}
 }
 
@@ -25,7 +25,7 @@ repositories {
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-security")
-	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.0.RC2")
+	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.1.RELEASE")
 	compile("com.fasterxml.jackson.core:jackson-databind")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
