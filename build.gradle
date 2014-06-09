@@ -3,7 +3,7 @@ buildscript {
 		maven { url "http://repo.spring.io/libs-milestone" }
 	}
 	dependencies { 
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.0.M2") 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.0.RC1") 
 	}
 }
 
