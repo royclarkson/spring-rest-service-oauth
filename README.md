@@ -30,7 +30,7 @@ curl http://localhost:8080/greeting
 You receive the following JSON response, which indicates you are not authorized to access the resource:
 
 ```
-{"error":"unauthorized","error_description":"Full authentication is required to access this resource"}
+{"error":"unauthorized","error_description":"An Authentication object was not found in the SecurityContext"}
 ```
 
 In order to access the protected resource, you must first request an access token via the OAuth handshake. Request OAuth authorization:
