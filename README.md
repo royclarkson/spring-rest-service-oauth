@@ -57,7 +57,7 @@ If the request is successful, you will see the following JSON response:
 {"id":1,"content":"Hello, World!"}
 ```
 
-Use the `refresh_token` returned in the request OAuth authorization to get a new `access_token` when it expires :
+Use the `refresh_token` returned in the request OAuth authorization to get a new `access_token` when it expires:
 
 ```sh
 curl -X POST -vu clientapp:123456 http://localhost:8080/oauth/token -H "Accept: application/json" -d "grant_type=refresh_token&refresh_token=f554d386-0b0a-461b-bdb2-292831cecd57&client_secret=123456&client_id=clientapp"
