@@ -18,6 +18,7 @@ package hello;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,6 +29,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
@@ -88,7 +90,7 @@ public class OAuth2ServerConfiguration {
 			clients
 				.inMemory()
 					.withClient("clientapp")
-						.authorizedGrantTypes("password")
+						.authorizedGrantTypes("password","refresh_token")
 						.authorities("USER")
 						.scopes("read", "write")
 						.resourceIds(RESOURCE_ID)
@@ -96,6 +98,15 @@ public class OAuth2ServerConfiguration {
 			// @formatter:on
 		}
 
-	}
+        @Bean
+        public DefaultTokenServices tokenServices() {
+            DefaultTokenServices tokenServices = new DefaultTokenServices();
+            tokenServices.setSupportRefreshToken(true);
+            tokenServices.setTokenStore(this.tokenStore);
+            return tokenServices;
+        }
+
+
+    }
 
 }
