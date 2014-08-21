@@ -1,7 +1,7 @@
 buildscript {
 	repositories {
 		mavenCentral()
-		maven { url "http://repo.spring.io/plugins-release" }
+		maven { url "https://repo.spring.io/plugins-release" }
 	}
 	dependencies { 
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.5.RELEASE") 
@@ -21,7 +21,7 @@ jar {
 
 repositories {
 	mavenCentral()
-	maven { url "http://repo.spring.io/libs-release" }
+	maven { url "https://repo.spring.io/libs-release" }
 }
 
 dependencies {
@@ -36,5 +36,5 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) { 
-	gradleVersion = "2.0" 
+	gradleVersion = "2.1-rc-1"
 }
