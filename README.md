@@ -30,7 +30,10 @@ curl http://localhost:8080/greeting
 You receive the following JSON response, which indicates you are not authorized to access the resource:
 
 ```
-{"error":"unauthorized","error_description":"An Authentication object was not found in the SecurityContext"}
+{
+  "error": "unauthorized",
+  "error_description": "An Authentication object was not found in the SecurityContext"
+}
 ```
 
 In order to access the protected resource, you must first request an access token via the OAuth handshake. Request OAuth authorization:
@@ -42,7 +45,13 @@ curl -X POST -vu clientapp:123456 http://localhost:8080/oauth/token -H "Accept: 
 A successful authorization results in the following JSON response:
 
 ```json
-{"access_token":"ff16372e-38a7-4e29-88c2-1fb92897f558","token_type":"bearer","refresh_token":"f554d386-0b0a-461b-bdb2-292831cecd57","expires_in":43199,"scope":"read write"}
+{
+  "access_token": "ff16372e-38a7-4e29-88c2-1fb92897f558",
+  "token_type": "bearer",
+  "refresh_token": "f554d386-0b0a-461b-bdb2-292831cecd57",
+  "expires_in": 43199,
+  "scope": "read write"
+}
 ```
 
 Use the `access_token` returned in the previous request to make the authorized request to the protected endpoint:
@@ -54,7 +63,10 @@ curl http://localhost:8080/greeting -H "Authorization: Bearer ff16372e-38a7-4e29
 If the request is successful, you will see the following JSON response:
 
 ```json
-{"id":1,"content":"Hello, World!"}
+{
+  "id": 1,
+  "content": "Hello, World!"
+}
 ```
 
 Use the `refresh_token` returned in the request OAuth authorization to get a new `access_token` when it expires:
