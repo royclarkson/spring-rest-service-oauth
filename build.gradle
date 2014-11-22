@@ -30,7 +30,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
 	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.3.RELEASE")
 	compile("com.fasterxml.jackson.core:jackson-databind")
-	compile("org.hsqldb:hsqldb:2.3.2")
+	compile("org.hsqldb:hsqldb")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	testCompile("com.jayway.jsonpath:json-path:0.8.1")
