@@ -16,7 +16,6 @@
 
 package hello;
 
-import hello.data.Greeting;
 import hello.data.User;
 
 import java.util.concurrent.atomic.AtomicLong;
