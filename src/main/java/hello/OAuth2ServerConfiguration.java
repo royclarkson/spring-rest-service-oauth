@@ -79,8 +79,8 @@ public class OAuth2ServerConfiguration {
 				throws Exception {
 			// @formatter:off
 			endpoints
-				.tokenStore(tokenStore)
-				.authenticationManager(authenticationManager);
+				.tokenStore(this.tokenStore)
+				.authenticationManager(this.authenticationManager);
 			// @formatter:on
 		}
 
@@ -106,7 +106,6 @@ public class OAuth2ServerConfiguration {
             tokenServices.setTokenStore(this.tokenStore);
             return tokenServices;
         }
-
 
     }
 
