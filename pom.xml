@@ -11,7 +11,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.2.0.RC2</version>
+		<version>1.2.0.RELEASE</version>
 	</parent>
 
 	<properties>
@@ -81,13 +81,13 @@
 	<repositories>
 		<repository>
 			<id>spring-releases</id>
-			<url>https://repo.spring.io/libs-milestone</url>
+			<url>https://repo.spring.io/libs-release</url>
 		</repository>
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>spring-releases</id>
+			<id>spring-plugin-releases</id>
 			<url>https://repo.spring.io/plugins-release</url>
 		</pluginRepository>
 	</pluginRepositories>
