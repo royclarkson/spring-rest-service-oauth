@@ -87,6 +87,23 @@ curl -X POST -vu clientapp:123456 http://localhost:8080/oauth/token -H "Accept: 
 ```
 
 
+To configure the project to run on https similar to this Guide: [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/), you have to select the <b>https</b> profile, you can do it by uncomenting appropriate line in application.propertis file of this project.
+It will change server port to 8443. So your links will have to be changed with respect to that
+Instead of :
+```sh
+curl -X POST -vu clientapp:123456 http://localhost:8080/oauth/token -H "Accept: application/json" -d "password=spring&username=roy&grant_type=password&scope=read%20write&client_secret=123456&client_id=clientapp"
+```
+You will need to use :
+```sh
+curl -X POST -k -vu clientapp:123456 https://localhost:8443/oauth/token -H "Accept: application/json" -d "password=spring&username=roy&grant_type=password&scope=read%20write&client_secret=123456&client_id=clientapp"
+```
+-k is necessary to  allow connections to SSL sites without certs or slef signed certificate wchich is created for this project.
+
+rest of the curl links has to follow the same rule
+```
+https://localhost:8443/...
+```
+
 
 ## Cloud Foundry Demo
 
