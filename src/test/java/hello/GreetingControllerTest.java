@@ -18,6 +18,7 @@ package hello;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -78,11 +79,9 @@ public class GreetingControllerTest {
 			.andExpect(jsonPath("$.error", is("unauthorized")));
 		// @formatter:on
 	}
-
-	@Test
-	public void greetingAuthorized() throws Exception {
-		String authorization = "Basic "
-				+ new String(Base64Utils.encode("clientapp:123456".getBytes()));
+	
+	private String getAccessToken(String username, String password) throws Exception {
+		String authorization = "Basic "	+ new String(Base64Utils.encode("clientapp:123456".getBytes()));
 		String contentType = MediaType.APPLICATION_JSON + ";charset=UTF-8";
 
 		// @formatter:off
@@ -92,8 +91,8 @@ public class GreetingControllerTest {
 								.header("Authorization", authorization)
 								.contentType(
 										MediaType.APPLICATION_FORM_URLENCODED)
-								.param("username", "roy")
-								.param("password", "spring")
+								.param("username", username)
+								.param("password", password)
 								.param("grant_type", "password")
 								.param("scope", "read write")
 								.param("client_id", "clientapp")
@@ -109,8 +108,13 @@ public class GreetingControllerTest {
 	
 	    // @formatter:on
 
-		String accessToken = content.substring(17, 53);
+		return content.substring(17, 53);
+	}
 
+	@Test
+	public void greetingAuthorized() throws Exception {
+		String accessToken = getAccessToken("roy", "spring");
+		
 		// @formatter:off
 	    mvc.perform(get("/greeting")
 	            .header("Authorization", "Bearer " + accessToken))
@@ -136,4 +140,23 @@ public class GreetingControllerTest {
 	    // @formatter:on
 	}
 
+	@Test
+	public void usersEndpointAuthorized() throws Exception {
+		// @formatter:off
+	    mvc.perform(get("/users")
+	            .header("Authorization", "Bearer " + getAccessToken("roy", "spring")))
+	            .andExpect(status().isOk())
+	            .andExpect(jsonPath("$", hasSize(3)));
+	    // @formatter:on
+	}
+	
+	@Test
+	public void usersEndpointAccessDenied() throws Exception {
+		// @formatter:off
+		mvc.perform(get("/users")
+				.header("Authorization", "Bearer " + getAccessToken("craig", "spring")))
+				.andExpect(status().is(403));
+		// @formatter:on
+	}
+	
 }
