@@ -28,7 +28,7 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-security")
 	compile("org.springframework.boot:spring-boot-starter-data-jpa")
-	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.5.RELEASE")
+	compile("org.springframework.security.oauth:spring-security-oauth2:2.0.6.RELEASE")
 	compile("com.fasterxml.jackson.core:jackson-databind")
 	compile("org.hsqldb:hsqldb")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
