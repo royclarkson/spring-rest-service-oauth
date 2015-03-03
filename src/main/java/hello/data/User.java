@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the original author or authors.
+ * Copyright 2014-2015 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package hello.data;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,32 +25,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class User {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
 
-    @NotEmpty
-    private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
-    @NotEmpty
-    @Column(unique=true, nullable = false)
-    private String login;
+	@NotEmpty
+	private String name;
 
-    @NotEmpty
-    private String password;
+	@NotEmpty
+	@Column(unique = true, nullable = false)
+	private String login;
 
-    @JsonIgnore
+	@NotEmpty
+	private String password;
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private Set<Role> roles = new HashSet<Role>();
-    
-    public User() {}
+
+	public User() {
+	}
 
 	public User(User user) {
 		super();
@@ -93,7 +92,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -101,5 +100,5 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
+
 }

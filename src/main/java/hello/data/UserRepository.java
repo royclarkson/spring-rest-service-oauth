@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the original author or authors.
+ * Copyright 2014-2015 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.springframework.data.repository.query.Param;
 
 
 public interface UserRepository extends CrudRepository<User, Long> {
-	
+
 	@Query("from hello.data.User u left join fetch u.roles where u.login = :login")
-    User findByLogin(@Param("login") String login);
+	User findByLogin(@Param("login") String login);
 }
