@@ -14,15 +14,28 @@
  * limitations under the License.
  */
 
-package hello.data;
+package hello;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import hello.data.User;
+import hello.data.UserRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+@RestController
+public class UsersController {
+
+	private final UserRepository userRepository;
+
+	@Autowired
+	public UsersController(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+	@RequestMapping("/users")
+	public Iterable<User> getUsers() {
+		return userRepository.findAll();
+	}
 	
-	@Query("from hello.data.User u left join fetch u.roles where u.login = :login")
-    User findByLogin(@Param("login") String login);
 }

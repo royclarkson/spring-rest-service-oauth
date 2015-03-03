@@ -16,13 +16,19 @@
 
 package hello.data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
@@ -41,6 +47,10 @@ public class User {
     @NotEmpty
     private String password;
 
+    @JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private Set<Role> roles = new HashSet<Role>();
+    
     public User() {}
 
 	public User(User user) {
@@ -49,6 +59,7 @@ public class User {
 		this.name = user.getName();
 		this.login = user.getLogin();
 		this.password = user.getPassword();
+		this.roles = user.getRoles();
 	}
 
 	public Integer getId() {
@@ -82,4 +93,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+	
 }
