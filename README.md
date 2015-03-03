@@ -1,6 +1,6 @@
 # Spring REST Service OAuth
 
-[![Build Status](https://travis-ci.org/royclarkson/spring-rest-service-oauth.svg)](https://travis-ci.org/royclarkson/spring-rest-service-oauth.svg)
+[![Build Status](https://travis-ci.org/royclarkson/spring-rest-service-oauth.svg)](https://travis-ci.org/royclarkson/spring-rest-service-oauth/)
 
 This is a simple REST service that provides a single RESTful endpoint protected by OAuth 2. The REST service is based on the [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) getting started guide. This project incorporates the new Java-based configuration support, now available in Spring Security OAuth 2.0. Please log any issues or feature requests to the [Spring Security OAuth project](https://github.com/spring-projects/spring-security-oauth/issues).
 
