@@ -74,14 +74,17 @@ public class OAuth2ServerConfiguration {
 		@Autowired
 		@Qualifier("authenticationManagerBean")
 		private AuthenticationManager authenticationManager;
-
+        @Autowired
+	    private CustomUserDetailsService userDetailsService;
+        
 		@Override
 		public void configure(AuthorizationServerEndpointsConfigurer endpoints)
 				throws Exception {
 			// @formatter:off
 			endpoints
-				.tokenStore(this.tokenStore)
-				.authenticationManager(this.authenticationManager);
+			.tokenStore(this.tokenStore)
+			.authenticationManager(this.authenticationManager)
+			.userDetailsService(userDetailsService);
 			// @formatter:on
 		}
 

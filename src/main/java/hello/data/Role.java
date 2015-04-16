@@ -16,16 +16,20 @@
 
 package hello.data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
 import org.springframework.security.core.GrantedAuthority;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Role implements GrantedAuthority {
@@ -39,9 +43,9 @@ public class Role implements GrantedAuthority {
 	@NotEmpty
 	private String name;
 
-	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
+	private Set<User> users = new HashSet<User>();
 
 	@Override
 	public String getAuthority() {
@@ -64,12 +68,12 @@ public class Role implements GrantedAuthority {
 		this.name = name;
 	}
 
-	public User getUser() {
-		return user;
+	public Set<User> getUsers() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
 
 }
