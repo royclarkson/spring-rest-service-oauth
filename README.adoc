@@ -1,22 +1,22 @@
-# Spring REST Service OAuth
+= Spring REST Service OAuth
 
-[![Build Status](https://travis-ci.org/royclarkson/spring-rest-service-oauth.svg)](https://travis-ci.org/royclarkson/spring-rest-service-oauth/)
+image::https://travis-ci.org/royclarkson/spring-rest-service-oauth.svg[Build Status, link=https://travis-ci.org/royclarkson/spring-rest-service-oauth/]
 
-This is a simple REST service that provides a single RESTful endpoint protected by OAuth 2. The REST service is based on the [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/) getting started guide. This project incorporates the new Java-based configuration support, now available in Spring Security OAuth 2.0. Please log any issues or feature requests to the [Spring Security OAuth project](https://github.com/spring-projects/spring-security-oauth/issues).
+This is a simple REST service that provides a single RESTful endpoint protected by OAuth 2. The REST service is based on the https://spring.io/guides/gs/rest-service/[Building a RESTful Web Service] getting started guide. This project incorporates the new Java-based configuration support, now available in Spring Security OAuth 2.0. Please log any issues or feature requests to the https://github.com/spring-projects/spring-security-oauth/issues[Spring Security OAuth project].
 
 
-## Spring Projects
+== Spring Projects
 
 The following Spring projects are used in this sample app:
 
-- [Spring Boot](http://projects.spring.io/spring-boot/)
-- [Spring MVC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)
-- [Spring Security](http://projects.spring.io/spring-security/)
-- [Spring Security OAuth](http://projects.spring.io/spring-security-oauth/)
-- [Spring Data JPA](http://projects.spring.io/spring-data-jpa/)
+* http://projects.spring.io/spring-boot/[Spring Boot]
+* http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html[Spring MVC]
+* http://projects.spring.io/spring-security/[Spring Security]
+* http://projects.spring.io/spring-security-oauth/[Spring Security OAuth]
+* http://projects.spring.io/spring-data-jpa/[Spring Data JPA]
 
 
-## Build and Run
+== Build and Run
 
 Use Gradle:
 
@@ -30,7 +30,7 @@ Or Maven:
 mvn clean package spring-boot:run
 ```
 
-## Usage
+== Usage
 
 Test the `greeting` endpoint:
 
@@ -87,25 +87,18 @@ curl -X POST -vu clientapp:123456 http://localhost:8080/oauth/token -H "Accept: 
 ```
 
 
-To configure the project to run on https similar to this Guide: [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/), you have to select the <b>https</b> profile, you can do it by uncomenting appropriate line in application.propertis file of this project.
-It will change server port to 8443. So your links will have to be changed with respect to that
-Instead of :
-```sh
-curl -X POST -vu clientapp:123456 http://localhost:8080/oauth/token -H "Accept: application/json" -d "password=spring&username=roy&grant_type=password&scope=read%20write&client_secret=123456&client_id=clientapp"
-```
-You will need to use :
+== SSL
+
+To configure the project to run on HTTPS as shown in https://spring.io/guides/tutorials/bookmarks/[Building REST services with Spring], enable the `https` profile. You can do this by uncommenting the appropriate line in the application.properties file of this project. This will change the server port to `8443`. Modify the previous requests as in the following command.
+
 ```sh
 curl -X POST -k -vu clientapp:123456 https://localhost:8443/oauth/token -H "Accept: application/json" -d "password=spring&username=roy&grant_type=password&scope=read%20write&client_secret=123456&client_id=clientapp"
 ```
--k is necessary to  allow connections to SSL sites without certs or slef signed certificate wchich is created for this project.
 
-rest of the curl links has to follow the same rule
-```
-https://localhost:8443/...
-```
+The `-k` parameter is necessary to allow connections to SSL sites without valid certificates or the self signed certificate which is created for this project.
 
 
-## Cloud Foundry Demo
+== Cloud Foundry Demo
 
 The service is deployed to Pivotal Cloud Foundry and available for testing. Modify the previous commands to point to the following URL:
 
