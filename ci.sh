@@ -1,16 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 cd $(dirname $0)
 
+set -e
+
 ./gradlew clean build
-ret=$?
-if [ $ret -ne 0 ]; then
-  exit $ret
-fi
 rm -rf build
 
 mvn clean package
-ret=$?
-if [ $ret -ne 0 ]; then
-  exit $ret
-fi
 rm -rf target
