@@ -16,7 +16,7 @@
 
 package hello.controllers;
 
-import hello.data.User;
+import hello.data.Users;
 import hello.data.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/users")
-	public Iterable<User> getUsers() {
+	public Iterable<Users> getUsers() {
 		return userRepository.findAll();
 	}
 

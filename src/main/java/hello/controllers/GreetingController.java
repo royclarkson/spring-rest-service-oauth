@@ -16,8 +16,8 @@
 
 package hello.controllers;
 
+import hello.data.Users;
 import hello.models.Greeting;
-import hello.data.User;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -33,8 +33,8 @@ public class GreetingController {
 	private final AtomicLong counter = new AtomicLong();
 
 	@RequestMapping("/greeting")
-	public Greeting greeting(@AuthenticationPrincipal User user) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, user.getName()));
+	public Greeting greeting(@AuthenticationPrincipal Users users) {
+		return new Greeting(counter.incrementAndGet(), String.format(template, users.getName()));
 	}
 
 }
