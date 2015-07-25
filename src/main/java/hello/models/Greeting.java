@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package hello;
+package hello.models;
 
 public class Greeting {
 

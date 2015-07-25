@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package hello;
+package hello.service;
 
 import java.util.Collection;
 
