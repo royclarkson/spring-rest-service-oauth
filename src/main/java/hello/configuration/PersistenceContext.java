@@ -1,6 +1,8 @@
 package hello.configuration;
 
 import com.jolbox.bonecp.BoneCPDataSource;
+import hello.service.FooService.FooService;
+import hello.service.FooService.FooServiceImpl;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -90,4 +92,8 @@ public class PersistenceContext {
         return transactionManager;
     }
 
+    @Bean
+    FooService fooService(){
+        return new FooServiceImpl();
+    }
 }
