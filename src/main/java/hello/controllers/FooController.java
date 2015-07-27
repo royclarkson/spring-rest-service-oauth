@@ -29,7 +29,6 @@ public class FooController {
     @Autowired
     public FooController(FooServiceImpl fooService){
         this.fooService = fooService;
-        this.fooService.setRepository();
     }
 
     @RequestMapping("/foo")

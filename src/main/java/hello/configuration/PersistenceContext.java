@@ -102,9 +102,4 @@ public class PersistenceContext {
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
     }
-
-    @Bean
-    FooService fooService(){
-        return new FooServiceImpl();
-    }
 }

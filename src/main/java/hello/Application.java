@@ -25,8 +25,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 public class Application {
 
 	public static void main(String[] args) {
-		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-		rootContext.register(PersistenceContext.class);
+
 
 		SpringApplication.run(Application.class, args);
 	}

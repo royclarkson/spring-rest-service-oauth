@@ -24,8 +24,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FooServiceImpl extends SharedService<Foo, FooRepository> implements FooService {
     @Autowired
-    FooRepository fooRepository;
-    public void setRepository(){
+    public FooServiceImpl(FooRepository fooRepository){
         super.setRepository(fooRepository);
     }
 }
