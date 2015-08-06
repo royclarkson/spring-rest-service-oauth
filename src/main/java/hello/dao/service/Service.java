@@ -13,18 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.dao.service;
 
-package hello;
+import hello.data.Users;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class HomeController {
-
-	@RequestMapping("/")
-	public String home() {
-		return "home";
-	}
-
+public interface Service<Entity> {
+    Entity save(Entity t, Users userB);
+    void delete(Entity t, Users userB);
+    void update(Entity t, Users userB);
+    Entity findById(Integer id);
+    Iterable<Entity> getAll();
 }

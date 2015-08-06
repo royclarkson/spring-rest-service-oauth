@@ -13,18 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.utility;
 
-package hello;
+import java.sql.Timestamp;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
-
-public class WebInitializer extends SpringBootServletInitializer {
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
-		return application.sources(Application.class);
-	}
-
+public class Date {
+    public static Timestamp now(){
+        long time = System.currentTimeMillis();
+        Timestamp date = new Timestamp(time);
+        return date;
+    }
 }

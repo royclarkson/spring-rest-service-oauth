@@ -13,18 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.data.Foo;
 
-package hello;
+import hello.dao.repository.SharedRepository;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
-
-public class WebInitializer extends SpringBootServletInitializer {
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
-		return application.sources(Application.class);
-	}
-
+public interface FooRepository extends SharedRepository<Foo, Integer> {
 }

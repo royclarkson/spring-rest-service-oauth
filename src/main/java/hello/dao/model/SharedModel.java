@@ -13,18 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.dao.model;
 
-package hello;
+import hello.utility.WhoWhen;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
-
-public class WebInitializer extends SpringBootServletInitializer {
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
-		return application.sources(Application.class);
-	}
-
+public interface SharedModel <T> {
+    void update(T t);
+    Integer getId();
+    void setId(Integer id);
+    WhoWhen getWhoWhen();
+    void setWhoWhen(WhoWhen whoWhen);
+    String getName();
+    void setName(String name);
 }

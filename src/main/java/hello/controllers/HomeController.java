@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package hello;
+package hello.controllers;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-public class WebInitializer extends SpringBootServletInitializer {
+@RestController
+public class HomeController {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
-		return application.sources(Application.class);
+	@RequestMapping("/")
+	public String home() {
+		return "home";
 	}
 
 }

@@ -13,18 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.controllers;
 
-package hello;
+import hello.data.Foo.Foo;
+import hello.service.FooService.FooServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+@RequestMapping(value =  "/foo")
+@RestController
+public class FooController extends CrudController<Foo, FooServiceImpl> {
 
-public class WebInitializer extends SpringBootServletInitializer {
+    private FooServiceImpl fooService;
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
-		return application.sources(Application.class);
-	}
+    @Autowired
+    public FooController(FooServiceImpl fooService){
+        super.setDependencies(fooService);
+        this.fooService = fooService;
+    }
 
 }

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package hello;
+package hello.service;
 
 import java.util.Collection;
 
-import hello.data.User;
+import hello.data.Users;
 import hello.data.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,19 +40,19 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByLogin(username);
-		if (user == null) {
-			throw new UsernameNotFoundException(String.format("User %s does not exist!", username));
+		Users users = userRepository.findByLogin(username);
+		if (users == null) {
+			throw new UsernameNotFoundException(String.format("Users %s does not exist!", username));
 		}
-		return new UserRepositoryUserDetails(user);
+		return new UserRepositoryUsersDetails(users);
 	}
 
-	private final static class UserRepositoryUserDetails extends User implements UserDetails {
+	private final static class UserRepositoryUsersDetails extends Users implements UserDetails {
 
 		private static final long serialVersionUID = 1L;
 
-		private UserRepositoryUserDetails(User user) {
-			super(user);
+		private UserRepositoryUsersDetails(Users users) {
+			super(users);
 		}
 
 		@Override

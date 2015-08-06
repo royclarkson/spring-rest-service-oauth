@@ -13,18 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.data.Foo;
 
-package hello;
+import hello.dao.model.AbstractModel;
+import hello.dao.model.SharedModel;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
-public class WebInitializer extends SpringBootServletInitializer {
+@Entity
+public class Foo extends AbstractModel<Foo> implements SharedModel<Foo> {
+    public Foo(){}
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+    @Override
+    public void update(Foo foo) {
+        super.update(foo);
+        this.bar = foo.getBar();
+    }
 
-		return application.sources(Application.class);
-	}
+    @Column
+    private String bar;
 
+    public String getBar() {
+        return bar;
+    }
+
+    public void setBar(String bar) {
+        this.bar = bar;
+    }
 }

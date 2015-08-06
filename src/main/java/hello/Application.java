@@ -16,13 +16,17 @@
 
 package hello;
 
+import hello.configuration.PersistenceContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 @SpringBootApplication
 public class Application {
 
 	public static void main(String[] args) {
+		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+		rootContext.register(PersistenceContext.class);
 		SpringApplication.run(Application.class, args);
 	}
 }

@@ -13,18 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.dao.repository;
 
-package hello;
+import org.springframework.data.repository.CrudRepository;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import java.io.Serializable;
 
-public class WebInitializer extends SpringBootServletInitializer {
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
-		return application.sources(Application.class);
-	}
-
+public interface SharedRepository<T, ID extends Serializable> extends CrudRepository<T, ID> {
+    T findByName(String name);
 }

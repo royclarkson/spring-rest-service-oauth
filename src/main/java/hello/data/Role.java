@@ -45,7 +45,7 @@ public class Role implements GrantedAuthority {
 
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
-	private Set<User> users = new HashSet<User>();
+	private Set<Users> userses = new HashSet<Users>();
 
 	@Override
 	public String getAuthority() {
@@ -68,12 +68,12 @@ public class Role implements GrantedAuthority {
 		this.name = name;
 	}
 
-	public Set<User> getUsers() {
-		return users;
+	public Set<Users> getUserses() {
+		return userses;
 	}
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
+	public void setUserses(Set<Users> userses) {
+		this.userses = userses;
 	}
 
 }

@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package hello.service.FooService;
 
-package hello;
+import hello.dao.service.SharedService;
+import hello.data.Foo.Foo;
+import hello.data.Foo.FooRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
-
-public class WebInitializer extends SpringBootServletInitializer {
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
-		return application.sources(Application.class);
-	}
-
+@Service
+public class FooServiceImpl extends SharedService<Foo, FooRepository> implements FooService {
+    @Autowired
+    public FooServiceImpl(FooRepository fooRepository){
+        super.setRepository(fooRepository);
+    }
 }

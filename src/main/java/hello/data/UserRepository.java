@@ -18,7 +18,7 @@ package hello.data;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<Users, Long> {
 
-	User findByLogin(String login);
+	Users findByLogin(String login);
 }

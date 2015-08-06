@@ -14,28 +14,25 @@
  * limitations under the License.
  */
 
-package hello;
+package hello.models;
 
-import hello.data.User;
-import hello.data.UserRepository;
+public class Greeting {
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+	private final long id;
 
-@RestController
-public class UserController {
+	private final String content;
 
-	private final UserRepository userRepository;
-
-	@Autowired
-	public UserController(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	public long getId() {
+		return id;
 	}
 
-	@RequestMapping("/users")
-	public Iterable<User> getUsers() {
-		return userRepository.findAll();
+	public String getContent() {
+		return content;
+	}
+
+	public Greeting(long id, String content) {
+		this.id = id;
+		this.content = content;
 	}
 
 }

@@ -19,7 +19,6 @@ package hello.data;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,7 +34,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class User {
+public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,16 +55,16 @@ public class User {
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	private Set<Role> roles = new HashSet<Role>();
 
-	public User() {
+	public Users() {
 	}
 
-	public User(User user) {
+	public Users(Users users) {
 		super();
-		this.id = user.getId();
-		this.name = user.getName();
-		this.login = user.getLogin();
-		this.password = user.getPassword();
-		this.roles = user.getRoles();
+		this.id = users.getId();
+		this.name = users.getName();
+		this.login = users.getLogin();
+		this.password = users.getPassword();
+		this.roles = users.getRoles();
 	}
 
 	public Integer getId() {
