@@ -53,14 +53,18 @@ public abstract class SharedService
         }
     }
 
+    public Long count(){
+        return repository.count();
+    }
+
     @Override
     public Iterable<Entity> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public Entity findById(Entity t, Integer id) {
-        return null;
+    public Entity findById(Integer id) {
+        return repository.findOne(id);
     }
 
     public Repository getRepository() {

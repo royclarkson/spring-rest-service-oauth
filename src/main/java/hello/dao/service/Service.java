@@ -21,6 +21,6 @@ public interface Service<Entity> {
     Entity save(Entity t, Users userB);
     void delete(Entity t, Users userB);
     void update(Entity t, Users userB);
-    Entity findById(Entity t, Integer id);
+    Entity findById(Integer id);
     Iterable<Entity> getAll();
 }

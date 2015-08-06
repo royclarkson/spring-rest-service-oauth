@@ -15,30 +15,22 @@
  */
 package hello.controllers;
 
+import hello.data.Foo.Foo;
 import hello.service.FooService.FooServiceImpl;
-import hello.utility.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequestMapping(value =  "/foo")
 @RestController
-public class FooController {
+public class FooController extends CrudController<Foo, FooServiceImpl> {
 
     private FooServiceImpl fooService;
 
     @Autowired
     public FooController(FooServiceImpl fooService){
+        super.setDependencies(fooService);
         this.fooService = fooService;
     }
 
-    @RequestMapping("/foo")
-    public Response home() {
-        Response response = new Response();
-        try {
-            response.setSuccessWithData(fooService.getAll());
-        }catch (Exception e){
-            response.setServerError(e.getMessage());
-        }
-        return response;
-    }
 }
